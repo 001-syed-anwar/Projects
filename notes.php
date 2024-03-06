@@ -13,8 +13,8 @@
 </head>
 
 <body>
-    <?php include "header.php";?>
-    
+    <?php include "header.php"; ?>
+
     <div class="container d-flex cont flex-column my-5">
         <div class="row text-center align-items-center justify-content-center  my-5">
             <h1>write your thoughts...</h1>
@@ -30,10 +30,10 @@
     </div>
     <script>
         CKEDITOR.replace('editor');
-        function proceed(){
-            //pass the data via ajax
+        function proceed() {
             console.log(CKEDITOR.instances.editor.getData());
-            window.location.href = "permission.php";
+            content = CKEDITOR.instances.editor.getData();
+            window.location.href = "permission.php?content=" + encodeURIComponent(content);
         }
     </script>
 </body>
